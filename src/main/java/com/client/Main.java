@@ -16,15 +16,19 @@ public class Main  {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(s.getInputStream()));
         DataOutputStream out = new DataOutputStream(s.getOutputStream());
-
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Inserisci la stringa da modificare: ");
-        String inpuString = scanner.nextLine();
-        
-        out.writeBytes(inpuString + "\n");
-        String ans = in.readLine();
-        System.out.println(ans);
-        scanner.close();
+        String inputString;
 
+        do{
+            System.out.print("Inserisci la stringa da modificare: ");
+            inputString = scanner.nextLine();
+            if(inputString.equals("exit")) inputString = "!";
+            out.writeBytes(inputString + "\n");
+
+            String ans = in.readLine();
+            if(inputString.equals("!"))break;
+            System.out.println(ans);
+        }while(true);
+        scanner.close();
     }
 }
