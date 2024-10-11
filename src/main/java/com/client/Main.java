@@ -30,5 +30,6 @@ public class Main  {
             System.out.println(ans);
         }while(true);
         scanner.close();
+        s.close();
     }
 }
